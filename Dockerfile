@@ -8,16 +8,15 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-COPY ["MobileProviderGateway/ApiGateway.csproj", "ApiGateway/"]
+COPY ApiGateway.csproj ./
 
-RUN dotnet restore "MobileProviderGateway/ApiGateway.csproj"
+RUN dotnet restore "ApiGateway.csproj"
 COPY . .
-WORKDIR "/src/ApiGateway"
-RUN dotnet build "./ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ApiGateway.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
