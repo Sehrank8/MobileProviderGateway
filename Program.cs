@@ -7,7 +7,8 @@ using System.Text.RegularExpressions;
 static void ConfigureOcelotJson()
 {
     var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "ocelot.template.json");
-    var finalPath = Path.Combine(Directory.GetCurrentDirectory(), "ocelot.json");
+    var finalPath = "/tmp/ocelot.json";
+
 
     var json = File.ReadAllText(templatePath);
 
@@ -21,7 +22,7 @@ static void ConfigureOcelotJson()
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigureOcelotJson();
-builder.Configuration.AddJsonFile("ocelot.json");
+builder.Configuration.AddJsonFile("/tmp/ocelot.json");
 
 
 
