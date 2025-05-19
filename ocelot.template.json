@@ -1,0 +1,31 @@
+﻿{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/v1/Login/Login",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "__DOWNSTREAM_API_HOST__",
+                    "Port": 443
+                }
+            ],
+            "UpstreamPathTemplate": "/mobileapi/v1/Login",
+            "UpstreamHttpMethod": [ "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/v1/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "__DOWNSTREAM_API_HOST__",
+                    "Port": 443
+                }
+            ],
+            "UpstreamPathTemplate": "/mobileapi/v1/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST" ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://__GATEWAY_HOST__"
+    }
+}
