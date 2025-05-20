@@ -4,7 +4,7 @@
 The **MobileProviderGateway** serves as a centralized API Gateway for the Mobile Provider ecosystem, facilitating secure and efficient routing of client requests to the appropriate backend services.
 
 ### You can test it here: On [Render](https://mobileproviderchatapp.onrender.com)
-
+### Video link: [VIDEO](https://drive.google.com/drive/folders/1iURph3ZgeGjW0-FUfo7s3M3Ar8QlmeFc?usp=sharing)
 ## 🔗 Related Projects
 
 - **Backend API**: [MobileProviderAPI](https://github.com/Sehrank8/MobileProviderAPI)
